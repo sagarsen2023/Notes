@@ -1,5 +1,49 @@
 # 1. Introduction
 
+## Types of **Data**
+
+> Categorial Data or Qualitative Data
+
+This type of data represents labels, categories, or names and is non-numeric.
+It can be divided into:
+
+1. **Nominal Data (Unordered Categorical Data):** Data that consists of categories without any order.
+   Examples:
+   - Gender: {Male, Female, Other}
+   - Eye Color: {Blue, Brown, Green}
+   - Blood Type: {A, B, AB, O}
+1. **Ordinal Data (Ordered Categorical Data):** Categorical data with a meaningful order but **no fixed interval** between values.
+   Examples:
+   - Education Level: {Primary, Secondary, Higher}
+   - Customer Satisfaction: {Poor, Average, Good, Excellent}
+   
+> Numerical Data or Quantitative Data
+
+Numerical data represents measurable quantities and is further classified into:
+1. **Discrete Data (Countable Numeric Data):** Data that can take only integer values.
+   Examples:
+   - Number of students in a class (30, 31, 32)
+   - Number of cars in a parking lot
+2. **Continuous Data (Measured Numeric Data) :** Data that can take any value within a range. 
+   Examples:
+   - Temperature (37.50C, 40.20C)
+   - Height (5.8 ft, 6.1 ft)
+   - Weight (70.5 kg, 80.2 kg)
+
+> Other Specialized Data Types
+
+Some data types do not fit directly into categorical or numerical categories
+and require specialized handling.
+
+1. Time-Series Data: Data collected at regular time intervals.
+   Examples:
+   - Stock market prices
+   - Temperature variations per hour
+2. Spatial Data: Data representing objects in space (geographical, topological).
+   Examples:
+   - GPS locations (Latitude, Longitude)
+   - Map-based customer distribution
+
 ## **ETL**: **Extract Transform Load** process.
 
 **Examples:** Microsoft SSILS, Apache Spark  
