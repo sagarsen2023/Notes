@@ -25,6 +25,15 @@ External ETL tools used | Cloud based warehouse used
 Slower | Faster
 Structured, on-premises data warehouses |Cloud-based analytics & big data
 
+### Data Warehouse vs Data Mart vs Data Lake
+Feature | Data Warehouse | Data Mart | Data Lake
+---|---|---|---
+Data Type | Processed and structured | Subset of data warehouse | Raw / Unstructured / Semi Structured Data
+Purpose | Enterprice wise analysis and reporting | Department specific analysis | Big Data, AI, ML
+Storage | High Cost optimized for better querying | Lower Cost | Cheap Cost
+Example| Amazon's Sales & customer data | Amazon marketing analysis | Netflix storage for all users
+
+
 ---
 
 # 2. Schemas
