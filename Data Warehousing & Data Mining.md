@@ -244,3 +244,23 @@ or modeling.
 4. Encoding Categorical Variables: One-hot encoding, label encoding, or target encoding. 
 5. Feature Extraction: Selecting relevant features or transforming existing features. 
 6. Data Splitting: Splitting data into training, validation, and test sets for model evaluation.
+
+---
+# 5. Data Clustering
+
+Clustering is the process o grouping similar objects together.
+
+#### Major Clustering Methods
+
+1. Partitioning Methods These methods divide the dataset into k partitions (or clusters), where each partition represents a cluster.
+   Examples:
+   - K-Means Clustering: Assigns each point to the nearest cluster centroid and iteratively updates centroids.
+   - K-Medoids (PAM - Partitioning Around Medoids): Similar to K-Means but chooses actual data points as centroids, making it robust to outliers.
+
+2. Hierarchical Methods These methods create a tree-like structure of clusters.
+   Types:
+   - Agglomerative (Bottom-Up): Each data point starts as an individual and merges step-by-step.
+   - Divisive (Top-Down): The whole dataset starts as one cluster and splits into smaller ones.
+
+3. Density-Based Methods Clusters are formed based on the density of data points. Key Algorithms:
+   - DBSCAN (Density-Based Spatial Clustering of Applications with Noise): clusters of arbitrary shape and identifies noise (outliers). 
