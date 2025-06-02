@@ -123,11 +123,37 @@ If customers buy bread and butter, they are 75% likely to also buy milk.
 ## 1.4 Sequential Pattern Mining
 
 Sequential pattern mining discovers frequent subsequences as patterns in a sequence database.
-
 ### Key Concepts:
 - **Sequence**: Ordered list of itemsets
 - **Support**: Frequency of a sequence in the database
 - **Sequential Pattern**: Frequently occurring subsequence
+
+### Sequential Pattern Example:
+
+Consider a customer transaction database:
+| Customer ID | Transaction Time | Items Purchased |
+|-------------|------------------|----------------|
+| C1          | Day 1            | A, B           |
+| C1          | Day 3            | C, D           |
+| C1          | Day 5            | E              |
+| C2          | Day 2            | A, C           |
+| C2          | Day 4            | B              |
+| C2          | Day 6            | D, E           |
+| C3          | Day 1            | A, B           |
+| C3          | Day 3            | B, C           |
+| C3          | Day 5            | D              |
+
+Customer sequences:
+- C1: ⟨(A,B), (C,D), (E)⟩
+- C2: ⟨(A,C), (B), (D,E)⟩
+- C3: ⟨(A,B), (B,C), (D)⟩
+
+With minimum support of 2 customers (66%), some frequent sequential patterns include:
+- ⟨(A)⟩: Supported by all 3 customers
+- ⟨(A), (D)⟩: Supported by C1, C2, C3
+- ⟨(A,B)⟩: Supported by C1, C3
+
+This analysis shows that customers who purchase item A are likely to purchase item D in a later transaction.
 
 ### Applications:
 - Customer purchase sequences
