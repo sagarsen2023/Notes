@@ -35,14 +35,78 @@ Frequent pattern mining discovers recurring relationships in datasets. These pat
 ### Association Rule Mining:
 - **Definition**: Identifies relationships between items in large datasets (if X, then Y)
 - **Key Metrics**:
-  - **Support**: Frequency of an itemset in the dataset
-  - **Confidence**: Likelihood that Y appears when X appears
-  - **Lift**: Ratio of observed support to expected support if X and Y were independent
+- **Support**: Frequency of an itemset in the dataset
+   - Example: If {bread, milk} appears in 20 out of 200 transactions, support = 20/200 = 10%
+- **Confidence**: Likelihood that Y appears when X appears
+   - Example: If {bread, milk} appears in 20 transactions and {bread} in 40 transactions, confidence of {bread} → {milk} = 20/40 = 50%
+- **Lift**: Ratio of observed support to expected support if X and Y were independent
+   - Example: If support({bread, milk}) = 10%, support({bread}) = 20%, and support({milk}) = 30%, lift = 10%/(20% × 30%) = 1.67
 
 ### Apriori Algorithm:
 1. Generate frequent itemsets (items exceeding minimum support threshold)
 2. Generate association rules from frequent itemsets
 3. Prune rules below confidence threshold
+
+#### Example of Apriori Algorithm:
+
+Consider a small transaction database:
+| Transaction ID | Items |
+|----------------|-------|
+| T1             | Bread, Milk, Butter |
+| T2             | Bread, Diaper, Beer, Eggs |
+| T3             | Milk, Diaper, Beer, Cola |
+| T4             | Bread, Milk, Diaper, Beer |
+| T5             | Bread, Milk, Diaper, Cola |
+
+Let's apply Apriori with minimum support = 60% (3 transactions) and confidence = 70%:
+
+**Step 1: Find 1-itemsets meeting minimum support**
+- {Bread}: 4/5 = 80% ✓
+- {Milk}: 4/5 = 80% ✓
+- {Diaper}: 4/5 = 80% ✓
+- {Beer}: 3/5 = 60% ✓
+- {Butter}: 1/5 = 20% ✗
+- {Eggs}: 1/5 = 20% ✗
+- {Cola}: 2/5 = 40% ✗
+
+**Step 2: Generate 2-itemsets from frequent 1-itemsets**
+- {Bread, Milk}: 3/5 = 60% ✓
+- {Bread, Diaper}: 3/5 = 60% ✓
+- {Bread, Beer}: 2/5 = 40% ✗
+- {Milk, Diaper}: 3/5 = 60% ✓
+- {Milk, Beer}: 2/5 = 40% ✗
+- {Diaper, Beer}: 3/5 = 60% ✓
+
+**Step 3: Generate 3-itemsets from frequent 2-itemsets**
+- {Bread, Milk, Diaper}: 2/5 = 40% ✗
+
+**Step 4: Generate rules from frequent itemsets and check confidence**
+
+From {Bread, Milk}:
+- {Bread} → {Milk}: 3/4 = 75% ✓
+- {Milk} → {Bread}: 3/4 = 75% ✓
+
+From {Bread, Diaper}:
+- {Bread} → {Diaper}: 3/4 = 75% ✓
+- {Diaper} → {Bread}: 3/4 = 75% ✓
+
+From {Milk, Diaper}:
+- {Milk} → {Diaper}: 3/4 = 75% ✓
+- {Diaper} → {Milk}: 3/4 = 75% ✓
+
+From {Diaper, Beer}:
+- {Diaper} → {Beer}: 3/4 = 75% ✓
+- {Beer} → {Diaper}: 3/3 = 100% ✓
+
+**Final association rules** (with support, confidence):
+- {Bread} → {Milk}: (60%, 75%)
+- {Milk} → {Bread}: (60%, 75%)
+- {Bread} → {Diaper}: (60%, 75%)
+- {Diaper} → {Bread}: (60%, 75%)
+- {Milk} → {Diaper}: (60%, 75%)
+- {Diaper} → {Milk}: (60%, 75%)
+- {Diaper} → {Beer}: (60%, 75%)
+- {Beer} → {Diaper}: (60%, 100%)
 
 ### FP-Growth Algorithm:
 - More efficient than Apriori for large datasets
